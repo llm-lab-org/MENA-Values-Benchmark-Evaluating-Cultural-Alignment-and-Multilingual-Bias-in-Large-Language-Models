@@ -1,3 +1,6 @@
+
+![Logo](https://github.com/user-attachments/assets/16855689-a69e-4bf2-9948-b56c1138bdb6)
+
 # MENAValues: Evaluating Cultural Alignment and Multilingual Bias in Large Language Models
 
 [![Dataset](https://img.shields.io/badge/Dataset-Available-green)](https://huggingface.co/datasets/llm-lab/MENA_VALUES_Benchmark)
