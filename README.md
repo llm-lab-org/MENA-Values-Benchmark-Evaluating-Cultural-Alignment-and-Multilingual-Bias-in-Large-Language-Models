@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/16855689-a69e-4bf2-9948-b56c1138bdb6" alt="Logo" width="200"/>
+  <img src="https://github.com/user-attachments/assets/16855689-a69e-4bf2-9948-b56c1138bdb6" alt="Logo" width="250"/>
   
 </div>
 
@@ -21,6 +21,8 @@ MENAValues is a comprehensive benchmark designed to evaluate the cultural alignm
 - **Token-level probability analysis** revealing hidden biases through "logit leakage"
 - **Four core dimensions**: Governance & Political Systems, Economic Values, Social & Cultural Identity, Individual Wellbeing & Development
 
+![Main Fig](https://github.com/user-attachments/assets/48cb4573-9b1e-493d-90fd-ed5531e4d377)
+
 ## 📊 Key Findings
 
 Our evaluation reveals three critical misalignment behaviors in LLMs:
@@ -28,6 +30,9 @@ Our evaluation reveals three critical misalignment behaviors in LLMs:
 1. **Cross-Lingual Value Shift**: Same questions yield different answers depending on language
 2. **Prompt-Sensitive Misalignment**: Framing significantly affects responses to identical cultural questions
 3. **Logit Leakage**: Models refuse to answer explicitly but reveal clear internal preferences
+
+![Results](https://github.com/user-attachments/assets/a52e4061-3613-493f-a09c-11dc582508d3)
+
 
 ## 🏗️ Repository Structure
 
