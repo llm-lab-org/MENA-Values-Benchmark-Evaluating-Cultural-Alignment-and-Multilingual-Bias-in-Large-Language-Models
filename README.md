@@ -1,5 +1,4 @@
-
-![Logo](https://github.com/user-attachments/assets/16855689-a69e-4bf2-9948-b56c1138bdb6)
+<img src="https://github.com/user-attachments/assets/16855689-a69e-4bf2-9948-b56c1138bdb6" alt="Logo" width="200"/>
 
 # MENAValues: Evaluating Cultural Alignment and Multilingual Bias in Large Language Models
 
