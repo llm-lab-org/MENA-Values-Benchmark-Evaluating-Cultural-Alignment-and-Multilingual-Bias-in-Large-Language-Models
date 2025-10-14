@@ -70,16 +70,5 @@ Our methodology systematically tests models under varying conditions to expose i
 
 ---
 
-## 📊 Results Summary (Zero-Shot)
-
-| Model            | NVAS       | CLCS       | FCS        |
-| :--------------- | :--------: | :--------: | :--------: |
-| **Llama-3.1-8B** | **75.75%** | 79.30%     | 85.83%     |
-| **Mistral-7B** | 69.15%     | 66.54%     | 88.51%     |
-| **AYA-8B** | 70.12%     | 80.49%     | 79.18%     |
-| **GPT-4o-mini** | 75.34%     | **89.47%** | **90.52%** |
-| **Gemini Flash** | 74.74%     | 88.38%     | 89.18%     |
-
-*Scores are based on the zero-shot condition as reported in Table 1 of the paper.
 
 
