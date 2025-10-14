@@ -82,6 +82,4 @@ Our methodology systematically tests models under varying conditions to expose i
 
 *Scores are based on the zero-shot condition as reported in Table 1 of the paper.
 
----
-}
 
