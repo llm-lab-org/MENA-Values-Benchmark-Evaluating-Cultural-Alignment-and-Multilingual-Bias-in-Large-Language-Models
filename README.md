@@ -1,173 +1,87 @@
 <div align="center">
   <img src="https://github.com/user-attachments/assets/16855689-a69e-4bf2-9948-b56c1138bdb6" alt="Logo" width="250"/>
-  
 </div>
 
-# MENAValues: Evaluating Cultural Alignment and Multilingual Bias in Large Language Models
+# MENAValues: A Benchmark for Cultural Alignment and Multilingual Bias in LLMs
 
 [![Dataset](https://img.shields.io/badge/Dataset-Available-green)](https://huggingface.co/datasets/llm-lab/MENA_VALUES_Benchmark)
+[![Paper](https://img.shields.io/badge/Paper-Read_Here-b31b1b.svg)](#how-to-cite)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
+### I Am Aligned, But With Whom? MENA Values Benchmark for Evaluating Cultural Alignment and Multilingual Bias in LLMs
 
-## Overview
+**Authors:** Pardis Sadat Zahraei, Ehsaneddin Asgari
 
-MENAValues is a comprehensive benchmark designed to evaluate the cultural alignment and multilingual biases of large language models (LLMs) with respect to the beliefs and values of the Middle East and North Africa (MENA) region. Built on authoritative population-scale survey data, this benchmark addresses the critical underrepresentation of MENA perspectives in current AI evaluation efforts.
+---
+
+## 📜 Overview
+
+**MENAValues** is a novel benchmark designed to evaluate the cultural alignment and multilingual biases of large language models (LLMs) with the beliefs and values of the **Middle East and North Africa (MENA) region**. As AI models are deployed globally, their tendency to reflect predominantly Western, English-speaking perspectives creates significant alignment gaps. This benchmark addresses the critical underrepresentation of MENA perspectives in AI evaluation by providing a scalable framework for diagnosing cultural misalignment and fostering more inclusive AI.
+
+![Main Figure illustrating the benchmark's evaluation methodology](https://github.com/user-attachments/assets/48cb4573-9b1e-493d-90fd-ed5531e4d377)
 
 ## 🔍 Key Features
 
-- **864 curated questions** spanning 16 MENA countries
-- **Population-scale survey data** from World Values Survey Wave 7 and Arab Opinion Index 2022
-- **Systematic evaluation framework** across 6 conditions (3 perspectives × 2 languages)
-- **Token-level probability analysis** revealing hidden biases through "logit leakage"
-- **Four core dimensions**: Governance & Political Systems, Economic Values, Social & Cultural Identity, Individual Wellbeing & Development
+-   **Empirically Grounded Data**: Features **864 questions** derived from large-scale, authoritative human surveys: the **World Values Survey (WVS-7)** and the **Arab Opinion Index 2022**.
+-   **Broad Regional Coverage**: Captures the sociocultural landscape of **16 MENA countries** with population-level response distributions.
+-   **Multi-Dimensional Evaluation**: Probes LLMs across a matrix of conditions, crossing three perspective framings with two language modes (English and native languages).
+-   **Deep Analytical Framework**: Moves beyond surface-level responses to analyze token-level probabilities, revealing hidden biases and novel phenomena.
+-   **Four Core Dimensions**: Questions are organized into four key pillars: Social & Cultural Identity, Economic Dimensions, Governance & Political Systems, and Individual Wellbeing & Development.
 
-![Main Fig](https://github.com/user-attachments/assets/48cb4573-9b1e-493d-90fd-ed5531e4d377)
+![Chart summarizing evaluation results across different models and metrics](https://github.com/user-attachments/assets/a52e4061-3613-493f-a09c-11dc582508d3)
+
+---
 
 ## 📊 Key Findings
 
-Our evaluation reveals three critical misalignment behaviors in LLMs:
+Our analysis reveals three critical and pervasive phenomena in state-of-the-art LLMs:
 
-1. **Cross-Lingual Value Shift**: Same questions yield different answers depending on language
-2. **Prompt-Sensitive Misalignment**: Framing significantly affects responses to identical cultural questions
-3. **Logit Leakage**: Models refuse to answer explicitly but reveal clear internal preferences
-
-![Results](https://github.com/user-attachments/assets/a52e4061-3613-493f-a09c-11dc582508d3)
+1.  **Cross-Lingual Value Shift**: Models provide drastically different answers to the same question when asked in English versus a native language (Arabic, Persian, or Turkish), indicating that cultural values are unstably encoded across languages.
+2.  **Reasoning-Induced Degradation**: Prompting models to "think through" their answers by providing reasoning often *degrades* their cultural alignment, activating stereotypes or Western-centric logic instead of nuanced cultural knowledge.
+3.  **Logit Leakage**: Models frequently issue surface-level refusals to sensitive questions (e.g., "I cannot answer that") while their internal logit probabilities reveal strong, high-confidence hidden preferences, suggesting safety training may only be masking underlying biases.
 
 
-## 🏗️ Repository Structure
+---
 
-```
-MENAValues/
-├── Dataset/                          # Core benchmark data
-│   └── MenaValues Benchmark.xlsx           # Complete benchmark with questions and ground truth
-├── LLM_Metrics/                     # Evaluation metrics organized by type
-│   ├── CLCS/                             # Cross-Lingual Consistency Scores
-│   │   ├── Observer/
-│   │   │      ├── CLCS_Observer_Aya_reasoning.xlsx   
-│   │   │      ├── CLCS_Observer_Aya_zero.xlsx
-│   │   │      ├── CLCS_Observer_Llama_reasoning.xlsx
-│   │   │      ├── CLCS_Observer_Llama_zero.xlsx
-│   │   │      ├── CLCS_Observer_Mistral_reasoning.xlsx
-│   │   │      └── CLCS_Observer_Mistral_zero.xlsx
-│   │   │
-│   │   ├── Persona/
-│   │   │      ├── CLCS_Aya_reasoning_Neutral.xlsx   
-│   │   │      ├── CLCS_Aya_zero_Neutral.xlsx
-│   │   │      ├── CLCS_Llama_reasoning_Neutral.xlsx
-│   │   │      ├── CLCS_Llama_zero_Neutral.xlsx
-│   │   │      ├── CLCS_Mistral_reasoning_Neutral.xlsx
-│   │   │      └── CLCS_Mistral_zero_Neutral.xlsx
-│   │   │ 
-│   │   └── Neutral/
-│   │       ├── CLCS_Aya_reasoning_Neutral.xlsx   
-│   │       ├── CLCS_Aya_zero_Neutral.xlsx
-│   │       ├── CLCS_Llama_reasoning_Neutral.xlsx
-│   │       ├── CLCS_Llama_zero_Neutral.xlsx
-│   │       ├── CLCS_Mistral_reasoning_Neutral.xlsx
-│   │       └── CLCS_Mistral_zero_Neutral.xlsx
-│   │
-│   ├── FCS/                              # Framing Consistency Scores
-│   │   ├── FCS_Aya_reasoning.xlsx
-│   │   ├── FCS_Aya_zero.xlsx
-│   │   ├── FCS_Llama_reasoning.xlsx
-│   │   ├── FCS_Llama_zero.xlsx
-│   │   ├── FCS_Mistral_reasoning.xlsx
-│   │   └── FCS_Mistral_zero.xlsx
-│   │
-│   ├── KL/                               # KL Divergence Analysis
-│   │   ├── KL_results_Aya_zero.xlsx
-│   │   ├── KL_results_Aya_zero_persona.xlsx
-│   │   ├── KL_results_Llama_zero.xlsx
-│   │   ├── KL_results_Llama_zero_persona.xlsx
-│   │   ├── KL_results_Mistral_zero.xlsx
-│   │   └── KL_results_Mistral_zero_persona.xlsx
-│   │
-│   ├── NVAS/                            # Normalized Value Alignment Scores
-│   │   ├── NOVAS/                       # Normalized (Observver) Value Alignment Scores
-│   │   │   ├── NVAS_observer_Aya_reasoning.xlsx
-│   │   │   ├── NVAS_observer_Aya_zero.xlsx
-│   │   │   ├── NVAS_observer_Llama_reasoning.xlsx
-│   │   │   ├── NVAS_observer_Llama_zero.xlsx
-│   │   │   ├── NVAS_observer_Mistral_reasoning.xlsx
-│   │   │   └── NVAS_observer_Mistral_zero.xlsx
-│   │   │
-│   │   └── NPVAS/                       # Normalized (Persona) Value Alignment Scores
-│   │       ├── NVAS_persona_Aya_reasoning.xlsx
-│   │       ├── NVAS_persona_Aya_zero.xlsx
-│   │       ├── NVAS_persona_Llama_reasoning.xlsx
-│   │       ├── NVAS_persona_Llama_zero.xlsx
-│   │       ├── NVAS_persona_Mistral_reasoning.xlsx
-│   │       └── NVAS_persona_Mistral_zero.xlsx
-│   │
-│   └── SPD/                              # Self-Persona Deviation scores
-│       ├── SPD_aya_reasoning.xlsx
-│       ├── SPD_aya_zero.xlsx
-│       ├── SPD_Llama_reasoning.xlsx
-│       ├── SPD_Llama_zero.xlsx
-│       ├── SPD_Mistral_reasoning.xlsx
-│       └── SPD_Mistral_zero.xlsx
-│
-├── LLM_Responses/                   # Complete model outputs across all conditions
-│   ├── Aya_zero_shot.xlsx               # Aya zero-shot responses (6 scenarios)
-│   ├── Aya_reasoning.xlsx               # Aya reasoning responses (6 scenarios)
-│   ├── Llama_zero_shot.xlsx             # Llama zero-shot responses (6 scenarios)
-│   ├── Llama_reasoning.xlsx             # Llama reasoning responses (6 scenarios)
-│   ├── Mistral_zero_shot.xlsx           # Mistral zero-shot responses (6 scenarios)
-│   └── Mistral_reasoning.xlsx           # Mistral reasoning responses (6 scenarios)
-├── Code/                            # Implementation script
-│   └── Evaluation Code.py               # Complete evaluation pipeline
-└── README.md
-```
-
+---
 
 ## 📈 Evaluation Framework
 
-### Perspectives
-- **Neutral**: Direct questioning without identity constraints
-- **Persona**: "Imagine you are an average [nationality]..."
-- **Observer**: "How would an average [nationality] respond to..."
+Our methodology systematically tests models under varying conditions to expose inconsistencies.
+
+### Perspectives (Framing Styles)
+-   **Neutral**: The LLM is queried directly without any identity constraints.
+-   **Persona**: The model is instructed to adopt a national identity (e.g., "Imagine you are an average Saudi...").
+-   **Observer**: The model is asked to act as a cultural analyst (e.g., "How would an average Saudi respond...").
 
 ### Languages
-- **English**: Standard evaluation language
-- **Native Languages**: Arabic, Persian, Turkish for respective regions
+-   **English**: The dominant language of AI development.
+-   **Native Languages**: Arabic, Persian, and Turkish, validated by native speakers.
 
-### Metrics
-- **NVAS**: Normalized Value Alignment Score - alignment with human values
-- **FCS**: Framing Consistency Score - consistency across perspectives
-- **CLCS**: Cross-Lingual Consistency Score - consistency across languages
-- **SPD**: Self-Persona Deviation - impact of identity assignment
+### Reasoning Conditions
+-   **Zero-Shot**: The model provides a direct, immediate answer without additional reasoning prompts.
+-   **With-Reasoning**: The model is prompted to provide a brief explanation before its answer.
 
-## 🌍 Coverage
+### Core Metrics
+-   **$NVAS$**: Normalized Value Alignment Score — Measures alignment with ground-truth human values.
+-   **$CLCS$**: Cross-Lingual Consistency Score — Measures response consistency between English and native languages.
+-   **$FCS$**: Framing Consistency Score — Measures response consistency across Persona and Observer framings.
+-   **$SPD$**: Self-Persona Deviation — Measures how much a model's response changes when assigned a persona.
 
-### Countries (16 MENA nations)
-Algeria, Egypt, Iran, Iraq, Jordan, Kuwait, Lebanon, Libya, Mauritania, Morocco, Palestine, Qatar, Saudi Arabia, Sudan, Tunisia, Turkey
-
-### Question Categories
-1. **Governance & Political Systems** (governance, corruption, political participation)
-2. **Economic Dimensions** (business, employment, competition)
-3. **Social & Cultural Identity** (religious values, social attitudes, ethics)
-4. **Individual Wellbeing & Development** (healthcare, education, migration)
-
-## 📊 Results Summary
-
-| Model | NVAS (Persona) | NVAS (Observer) | Cross-Lingual Consistency |
-|-------|----------------|-----------------|--------------------------|
-| Llama-3.1-8B | 74.75% | 73.21% | 75.72% |
-| Mistral-7B | 71.08% | 70.43% | 66.02% |
-| Aya-8B | 69.30% | 70.91% | 82.11% |
-
-
-##
-## 🙏 Acknowledgments
-
-- World Values Survey Association for WVS Wave 7 data
-- Arab Center for Research and Policy Studies for Arab Opinion Index 2022
-- The broader AI alignment and cultural bias research community
-
-## 📧 Contact
-
-For questions about the benchmark or collaboration opportunities:
-- Email: [zahraei2@illinois.edu]
 ---
 
-**Note**: This benchmark is designed for research purposes to improve AI alignment with diverse cultural values. Please use responsibly and in accordance with ethical AI research practices.
+## 📊 Results Summary (Zero-Shot)
+
+| Model            | NVAS       | CLCS       | FCS        |
+| :--------------- | :--------: | :--------: | :--------: |
+| **Llama-3.1-8B** | **75.75%** | 79.30%     | 85.83%     |
+| **Mistral-7B** | 69.15%     | 66.54%     | 88.51%     |
+| **AYA-8B** | 70.12%     | 80.49%     | 79.18%     |
+| **GPT-4o-mini** | 75.34%     | **89.47%** | **90.52%** |
+| **Gemini Flash** | 74.74%     | 88.38%     | 89.18%     |
+
+*Scores are based on the zero-shot condition as reported in Table 1 of the paper.
+
+---
+}
+

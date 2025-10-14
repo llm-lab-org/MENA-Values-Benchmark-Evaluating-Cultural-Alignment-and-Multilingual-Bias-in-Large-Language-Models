@@ -85,7 +85,7 @@ def batch_generate_with_logits(model, tokenizer, prompts, min_values, max_values
                 with torch.no_grad(), amp.autocast(dtype=torch.bfloat16):
                     outputs = model.generate(
                         **inputs,
-                        max_new_tokens=30,
+                        max_new_tokens=15,
                         return_dict_in_generate=True,
                         output_scores=True,
                         temperature=0.0,  # Ensures purely deterministic outputs
