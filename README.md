@@ -5,7 +5,7 @@
 # MENAValues: A Benchmark for Cultural Alignment and Multilingual Bias in LLMs
 
 [![Dataset](https://img.shields.io/badge/Dataset-Available-green)](https://huggingface.co/datasets/llm-lab/MENA_VALUES_Benchmark)
-[![Paper](https://img.shields.io/badge/Paper-Read_Here-b31b1b.svg)](#how-to-cite)
+[![Paper](https://img.shields.io/badge/Paper-Read_Here-b31b1b.svg)](https://arxiv.org/abs/2510.13154)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
 ### I Am Aligned, But With Whom? MENA Values Benchmark for Evaluating Cultural Alignment and Multilingual Bias in LLMs
@@ -43,7 +43,6 @@ Our analysis reveals three critical and pervasive phenomena in state-of-the-art 
 
 ---
 
----
 
 ## 📈 Evaluation Framework
 
