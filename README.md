@@ -2,7 +2,7 @@
   <img src="https://github.com/user-attachments/assets/16855689-a69e-4bf2-9948-b56c1138bdb6" alt="Logo" width="250"/>
 </div>
 
-# MENAValues: A Benchmark for Cultural Alignment and Multilingual Bias in LLMs
+# I Am Aligned, But With Whom? Diagnosing Structural Alignment Failures in Multilingual LLMs
 
 [![Dataset](https://img.shields.io/badge/Dataset-Available-green)](https://huggingface.co/datasets/llm-lab/MENA_VALUES_Benchmark)
 [![Paper](https://img.shields.io/badge/Paper-Read_Here-b31b1b.svg)](https://arxiv.org/abs/2510.13154)
