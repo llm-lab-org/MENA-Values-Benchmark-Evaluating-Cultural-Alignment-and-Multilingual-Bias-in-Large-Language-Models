@@ -8,7 +8,7 @@
 [![Paper](https://img.shields.io/badge/Paper-Read_Here-b31b1b.svg)](https://arxiv.org/abs/2510.13154)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
-### I Am Aligned, But With Whom? MENA Values Benchmark for Evaluating Cultural Alignment and Multilingual Bias in LLMs
+### I Am Aligned, But With Whom? Diagnosing Structural Alignment Failures in Multilingual LLMs
 
 **Authors:** Pardis Sadat Zahraei, Ehsaneddin Asgari
 
